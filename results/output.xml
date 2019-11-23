@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20191122 11:56:22.683" generator="Robot 3.1.2 (Python 2.7.17 on win32)">
+<suite source="c:\qaninja\ninjaplus\specs\login.robot" id="s1" name="Login">
+<test id="s1-t1" name="Login com sucesso">
+<kw type="setup" name="Abrir navegador" library="login_steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${DEFAULT_URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20191122 11:56:23.102" level="INFO">Opening browser 'chrome' to base url 'http://ninjaplus-web:5000/login'.</msg>
+<status status="PASS" endtime="20191122 11:56:32.766" starttime="20191122 11:56:23.101"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20191122 11:56:32.771" starttime="20191122 11:56:32.766"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20191122 11:56:35.055" starttime="20191122 11:56:32.771"></status>
+</kw>
+<status status="PASS" endtime="20191122 11:56:35.056" starttime="20191122 11:56:23.100"></status>
+</kw>
+<kw name="Fazendo login com &quot;marry@teste.com&quot; e senha &quot;teste123&quot;" library="login_steps">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${EmailID}</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20191122 11:56:35.093" level="INFO">Typing text 'marry@teste.com' into text field 'id:emailId'.</msg>
+<status status="PASS" endtime="20191122 11:56:35.749" starttime="20191122 11:56:35.093"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:passId</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20191122 11:56:35.750" level="INFO">Typing text 'teste123' into text field 'id:passId'.</msg>
+<status status="PASS" endtime="20191122 11:56:36.176" starttime="20191122 11:56:35.749"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>id:login</arg>
+</arguments>
+<msg timestamp="20191122 11:56:36.177" level="INFO">Clicking button 'id:login'.</msg>
+<status status="PASS" endtime="20191122 11:56:36.455" starttime="20191122 11:56:36.177"></status>
+</kw>
+<status status="PASS" endtime="20191122 11:56:36.455" starttime="20191122 11:56:35.092"></status>
+</kw>
+<kw name="Devo ver o meu nome &quot;Marry&quot; na área logada" library="login_steps">
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<arguments>
+<arg>css:.user .info span</arg>
+<arg>${username}</arg>
+</arguments>
+<status status="PASS" endtime="20191122 11:56:37.458" starttime="20191122 11:56:36.457"></status>
+</kw>
+<status status="PASS" endtime="20191122 11:56:37.459" starttime="20191122 11:56:36.456"></status>
+</kw>
+<kw type="teardown" name="Fechar navegador" library="login_steps">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20191122 11:56:40.053" starttime="20191122 11:56:37.485"></status>
+</kw>
+<status status="PASS" endtime="20191122 11:56:40.055" starttime="20191122 11:56:37.483"></status>
+</kw>
+<status status="PASS" endtime="20191122 11:56:40.057" critical="yes" starttime="20191122 11:56:23.099"></status>
+</test>
+<doc>O usuário informa suas credencias de acesso e vai para área logada</doc>
+<status status="PASS" endtime="20191122 11:56:40.064" starttime="20191122 11:56:22.688"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Login" pass="1">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
