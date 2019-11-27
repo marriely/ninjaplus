@@ -5,6 +5,7 @@ Test Template   Logando com credencias inválidas devo ver uma mensagem de alert
 
 Test Setup          Abrir navegador
 Test Teardown       Fechar navegador
+#teste
 
 
 *** Test Cases ***

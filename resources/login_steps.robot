@@ -9,6 +9,7 @@ ${INPUT_PASS}       css:input[name=password]
 ${BUTTON_SUBMIT}    id:login
 ${DIV_ALERT}        css:.alert
 ${SPAN_USER}        css:.user .info span
+#teste
 
 
 *** Keywords ***
