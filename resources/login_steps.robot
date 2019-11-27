@@ -4,7 +4,11 @@ Library     SeleniumLibrary
 *** Variables ***
 ${DEFAULT_URL}      http://ninjaplus-web:5000/login
 ${BROWSER}          chrome
-${EmailID}          id:emailId
+${INPUT_EMAIL}      css:input[name=email]
+${INPUT_PASS}       css:input[name=password]
+${BUTTON_SUBMIT}    id:login
+${DIV_ALERT}        css:.alert
+${SPAN_USER}        css:.user .info span
 
 
 *** Keywords ***
@@ -22,30 +26,20 @@ Fechar navegador
 
 #### Steps
 Fazendo login com "${email}" e senha "${pass}"         
-    Input Text          ${EmailID}                          ${email}
-    Input Text          id:passId                           ${pass}
-    Click Button        id:login
+    Input Text          ${INPUT_EMAIL}                        ${email}
+    Input Text          ${INPUT_PASS}                         ${pass}
+    Click Button        ${BUTTON_SUBMIT}
     
 Devo ver o meu nome "${username}" na área logada
     # Page Should Contain                 ${username}
     # da forma acima está validando da página toda e com isso pode gerar um falso positivo, se na página tiver outra informação com o mesmo nome, vamos validar pelo elemento
-    Wait Until Element Contains     css:.user .info span        ${username}        
-
-Devo ver o alerta "${messageAlert}"
-    # Page Should Contains                 ${messageAlert} para funcionar dessa forma, eu precisaria do sleep.
-    Wait Until Element Contains      css:.alert      ${messageAlert}
-    # o . significa que vai buscar por class e o alert é nome da class
+    Wait Until Element Contains     ${SPAN_USER}        ${username}        
 
 Logando com credencias inválidas devo ver uma mensagem de alerta
     [Arguments]                         ${email}        ${pass}         ${messageAlert}
-    Input Text                          ${EmailID}                          ${email}
-    Input Text                          id:passId                           ${pass}
-    Click Button                        id:login
-    Wait Until Element Contains         css:.alert span                          ${messageAlert}
+
+    Input Text                          ${INPUT_EMAIL}                  ${email}
+    Input Text                          ${INPUT_PASS}                   ${pass}
+    Click Button                        ${BUTTON_SUBMIT}
+    Wait Until Element Contains         ${DIV_ALERT}                    ${messageAlert}
     
-Logando sem os campos requeridos devo ver uma mensagem de alerta
-    [Arguments]                         ${email}        ${pass}         ${messageAlert}
-    Input Text                          ${EmailID}                          ${email}
-    Input Text                          id:passId                           ${pass}
-    Click Button                        id:login
-    Wait Until Element Contains         css:.alert span                         ${messageAlert}

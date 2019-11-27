@@ -9,7 +9,9 @@ Test Teardown       Fechar navegador
 
 *** Test Cases ***
 Senha inválida          marry@teste.com         123456          Usuário e/ou senha inválidos
-Email inválido          marri123@teste.com      teste123        Usuário e/ou senha inválidos          
+Email inválido          marri123@teste.com      teste123        Usuário e/ou senha inválidos
+Senha requerida         marry@teste.com           ${EMPTY}        Opps. Cadê a senha
+Email requerido         ${EMPTY}                  teste123        Opps. Cadê o email           
 
 
 
