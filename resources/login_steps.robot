@@ -20,9 +20,13 @@ Abrir navegador
     Set Selenium Implicit Wait  10
     #o comando acima não é que o sistema "dorme" por 10 segudos, igual é com o comando sleep, no caso acima quando o elemento for carregado ele já segue a vida.
     Maximize Browser Window
+    
 
 Fechar navegador
     Close Browser
+
+App deve estar no ar
+    Title Should Be     Ninja+
 
 
 #### Steps
